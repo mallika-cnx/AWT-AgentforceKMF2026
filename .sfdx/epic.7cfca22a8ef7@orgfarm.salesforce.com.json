@@ -1,0 +1,19 @@
+{
+  "accessToken": "132dd4f88bef074974fb09ed4e7585668830a0427b135f89d96663f11d68524452617c6c0fb0861abdc5059a5d068e73abd431dffab35a9ed4b7db1ec963bf45f81a65b16c2131b15c69539df25043a349e4aa80df46298954f5e1045df238a31d7eaac464b435cf4da91a54e55419f0e31d2f128a00:39ebf1913c628880f9c85c2c396cd4f5",
+  "instanceUrl": "https://orgfarm-f017832962.my.salesforce.com",
+  "orgId": "00Dak00000oeZ99EAE",
+  "username": "epic.7cfca22a8ef7@orgfarm.salesforce.com",
+  "loginUrl": "https://login.salesforce.com/",
+  "refreshToken": "5c9b4d993d44f21da93e5103f14f64454e2fb49bc42640bec1079ff7115193c2d865878b936031b3fc4b3caf248eeeb220a20b14b0e2cf6b7e9f746c8ce0edcfbc9995d85e338827f8349d51935b4096cf09884c0067662e49d157a192:2effaca2ea15783775d3294a8c4a57aa",
+  "clientId": "PlatformCLI",
+  "isDevHub": false,
+  "instanceApiVersion": "66.0",
+  "instanceApiVersionLastRetrieved": "5/2/2026, 11:15:20 AM",
+  "name": "EPIC OrgFarm",
+  "instanceName": "USA840",
+  "namespacePrefix": null,
+  "isSandbox": false,
+  "isScratch": false,
+  "trailExpirationDate": "2026-05-30T12:15:24.000+0000",
+  "tracksSource": false
+}
