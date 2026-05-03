@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#8B70D1</headerColor>
+        <logo>Urban_threads_image1</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Store Expansion Strategy Agent. Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Urban Threads</label>
+    <navType>Standard</navType>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Visit</tabs>
+    <tabs>standard-RetailStore</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>Potential_Site__c</tabs>
+    <tabs>Site_Score__c</tabs>
+    <tabs>Competitor_Proximity__c</tabs>
+    <tabs>Financial_Projection__c</tabs>
+    <tabs>Demographic_Profile__c</tabs>
+    <tabs>Expansion_Decision__c</tabs>
+    <tabs>WhatsApp_Interaction__c</tabs>
+    <tabs>Expansion_Dashboard</tabs>
+    <tabs>ExpansionDashboard</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Urban_Threads_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,15 @@
+{
+  "required" : [ "gMapURL" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "gMapURL" : {
+      "title" : "gMapURL",
+      "description" : "Google map URL as text input which will be provided by user",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

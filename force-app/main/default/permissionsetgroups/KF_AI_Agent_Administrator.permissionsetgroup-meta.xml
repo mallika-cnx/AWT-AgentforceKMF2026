@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>KF_AI_Agent_Administrator</label>
+    <permissionSets>KF_AI_Agent_Admin_Config</permissionSets>
+    <permissionSets>KF_DataCloud_Ingestion</permissionSets>
+    <permissionSets>force__CopilotSalesforceAdmin</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

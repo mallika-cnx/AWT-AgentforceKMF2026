@@ -1,0 +1,42 @@
+{
+  "required" : [ "var_SiteId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_ApproverId" : {
+      "title" : "var_ApproverId",
+      "description" : "User Details",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "var_Capex" : {
+      "title" : "var_Capex",
+      "description" : "Cpacity Details",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_OpenDate" : {
+      "title" : "var_OpenDate",
+      "description" : "Date",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_Remarks" : {
+      "title" : "var_Remarks",
+      "description" : "Notes",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_SiteId" : {
+      "title" : "var_SiteId",
+      "description" : "Site Id",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

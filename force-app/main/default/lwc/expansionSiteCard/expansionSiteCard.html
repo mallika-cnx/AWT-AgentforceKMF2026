@@ -1,0 +1,48 @@
+<template>
+  <div class='site-card' onclick={handleClick}
+       role='button' tabindex='0'>
+
+    <div class='card-header'>
+      <div class='card-title-block'>
+        <p class='site-name'>{site.name}</p>
+        <p class='site-address'>{sanitizedAddress}</p>
+      </div>
+      <div class='badge-group'>
+        <span class={competitionClass}>{site.competition}</span>
+        <template if:true={site.blindSpot}>
+          <span class='badge badge-blind'>Blind Spot</span>
+        </template>
+      </div>
+    </div>
+
+    <div class='score-section'>
+      <div class='score-row'>
+        <span class='score-label'>Demand Score</span>
+        <span class={tierClass}>
+          {demandScoreDisplay} / 100
+        </span>
+      </div>
+      <div class='score-bar-bg'>
+        <div class='score-bar-fill'
+             style={scoreBarStyle}></div>
+      </div>
+    </div>
+
+    <div class='metrics-grid'>
+      <div class='metric-cell'>
+        <p class='metric-label'>Revenue Y1</p>
+        <p class='metric-value'>{formattedRevenue}</p>
+      </div>
+      <div class='metric-cell'>
+        <p class='metric-label'>Payback</p>
+        <p class='metric-value'>{formattedPayback}</p>
+      </div>
+    </div>
+
+      <div class='card-footer'>
+        <span class='status-text'>{site.siteStatus}</span>
+        <span class='view-link' role="link" tabindex="0" onclick={handleClick}>View details →</span>
+      </div>
+
+  </div>
+</template>

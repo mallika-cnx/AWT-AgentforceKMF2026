@@ -1,0 +1,35 @@
+{
+  "required" : [ "address", "latitude", "locationName", "longitude" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "address" : {
+      "title" : "address",
+      "description" : "The full address, area name, or place text the user shared",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "latitude" : {
+      "title" : "latitude",
+      "description" : "Decimal latitude if the user shared a GPS pin, otherwise leave blank",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "locationName" : {
+      "title" : "locationName",
+      "description" : "Text location name if the user shared a GPS pin, otherwise leave blank",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "longitude" : {
+      "title" : "longitude",
+      "description" : "Decimal longitude if the user shared a GPS pin, otherwise leave blank",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

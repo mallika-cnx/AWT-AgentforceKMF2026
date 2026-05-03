@@ -1,0 +1,109 @@
+.site-card {
+  background: white;
+  border: 1px solid #D6E4F0;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.site-card:hover {
+  border-color: #2E75B6;
+  box-shadow: 0 4px 12px rgba(30,75,120,0.1);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.site-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1F4E79;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.site-address {
+  font-size: 0.75rem;
+  color: #8496A9;
+  margin: 0.2rem 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.badge-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.badge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 1rem;
+}
+.badge-low    { background:#D4EDDA; color:#155724; }
+.badge-medium { background:#FFF3CD; color:#856404; }
+.badge-high   { background:#F8D7DA; color:#721C24; }
+.badge-blind  { background:#D1ECF1; color:#0C5460; }
+.badge-default{ background:#EEF4FA; color:#8496A9; }
+.score-section { margin-bottom: 0.75rem; }
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+.score-label { color: #8496A9; }
+.tier { font-weight: 600; }
+.tier-prime   { color: #1D9E75; }
+.tier-viable  { color: #2E75B6; }
+.tier-marginal{ color: #EF9F27; }
+.tier-poor    { color: #E24B4A; }
+.score-bar-bg {
+  height: 0.375rem;
+  background: #EEF4FA;
+  border-radius: 1rem;
+}
+.score-bar-fill {
+  height: 0.375rem;
+  border-radius: 1rem;
+  transition: width 0.3s;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+.metric-cell {
+  background: #F8F9FA;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.metric-label {
+  font-size: 0.7rem;
+  color: #8496A9;
+  margin: 0 0 0.15rem;
+}
+.metric-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1F4E79;
+  margin: 0;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid #EEF4FA;
+  font-size: 0.75rem;
+}
+.status-text { color: #8496A9; }
+.view-link { color: #2E75B6; font-weight: 500; }

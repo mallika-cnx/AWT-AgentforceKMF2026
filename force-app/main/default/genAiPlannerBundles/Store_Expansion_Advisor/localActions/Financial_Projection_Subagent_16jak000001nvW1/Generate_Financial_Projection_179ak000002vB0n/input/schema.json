@@ -1,0 +1,14 @@
+{
+  "required" : [ "var_SiteId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_SiteId" : {
+      "title" : "var_SiteId",
+      "description" : "(from user conversation — city name,\n               site name, or PIN code)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

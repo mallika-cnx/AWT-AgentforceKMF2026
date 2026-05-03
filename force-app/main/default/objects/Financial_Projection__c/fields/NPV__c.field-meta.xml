@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NPV__c</fullName>
+    <description>3-year NPV computed by Agentforce using org-level discount rate from Custom Metadata 
+
+Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <label>Net Present Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

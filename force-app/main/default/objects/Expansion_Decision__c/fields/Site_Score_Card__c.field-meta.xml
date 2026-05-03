@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Score_Card__c</fullName>
+    <description>Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <inlineHelpText>Master-detail to the Scorecard that drove this decision</inlineHelpText>
+    <label>Site Score Card</label>
+    <referenceTo>Site_Score__c</referenceTo>
+    <relationshipLabel>Expansion Decisions</relationshipLabel>
+    <relationshipName>Expansion_Decisions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

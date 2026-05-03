@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Links to the Account record with Record Type = Competitor_Outlet 
+
+Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <label>Competitor Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Competitor Proximities</relationshipLabel>
+    <relationshipName>Competitor_Proximities</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

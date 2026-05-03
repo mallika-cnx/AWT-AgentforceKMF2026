@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Competition_Level__c</columns>
+    <columns>Competitor_Density__c</columns>
+    <columns>Demand_Score__c</columns>
+    <columns>Demographic_Index__c</columns>
+    <columns>Footfall_Index__c</columns>
+    <columns>Overall_Rank__c</columns>
+    <columns>Potential_Site__c</columns>
+    <columns>Score_Confidence__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

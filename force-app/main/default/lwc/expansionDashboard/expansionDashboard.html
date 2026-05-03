@@ -1,0 +1,104 @@
+<template>
+  <div class='dashboard-container'>
+
+    <!-- Header -->
+    <div class='dashboard-header'>
+      <div class='header-left'>
+        <h1 class='dashboard-title'>
+          Expansion Strategy Dashboard
+        </h1>
+        <p class='dashboard-sub'>
+          Site scoring, competition analysis,
+          and financial projections
+        </p>
+      </div>
+      <div class='header-controls'>
+        <input type='text' class='search-input'
+          placeholder='Search by city or site name...'
+          value={searchTerm}
+          onchange={handleSearchChange} />
+        <input type='text' class='region-input'
+          placeholder='Filter by region...'
+          value={regionFilter}
+          onchange={handleRegionChange} />
+        <lightning-combobox
+          label=''
+          value={competitionFilter}
+          placeholder='Competition'
+          options={competitionOptions}
+          onchange={handleCompetitionChange}
+          class='comp-filter'>
+        </lightning-combobox>
+        <lightning-button
+          label='Refresh'
+          icon-name='utility:refresh'
+          onclick={handleRefresh}
+          variant='brand'>
+        </lightning-button>
+      </div>
+    </div>
+
+    <!-- KPI Strip -->
+    <c-expansion-kpi-strip
+      total-sites={totalSites}
+      high-potential={highPotential}
+      blind-spots={blindSpots}
+      avg-payback={avgPayback}>
+    </c-expansion-kpi-strip>
+
+    <!-- Tab bar -->
+    <div class='tab-bar'>
+      <button class={sitesTabClass}
+        data-tab='sites'
+        onclick={handleTabChange}>
+        Site Candidates ({siteCount})
+      </button>
+      <button class={matrixTabClass}
+        data-tab='matrix'
+        onclick={handleTabChange}>
+        Score Matrix
+      </button>
+    </div>
+
+    <!-- Error -->
+    <template if:true={errorMessage}>
+      <div class='error-box'>{errorMessage}</div>
+    </template>
+
+    <!-- Loading -->
+    <template if:true={isLoading}>
+      <div class='loading-box'>
+        <lightning-spinner
+          alternative-text='Loading'
+          size='medium'>
+        </lightning-spinner>
+        <p>Loading sites...</p>
+      </div>
+    </template>
+
+    <!-- Sites Tab -->
+    <template if:true={isSitesTab}>
+      <c-expansion-site-list
+        sites={filteredSites}
+        onsiteselect={handleSiteSelect}>
+      </c-expansion-site-list>
+    </template>
+
+    <!-- Matrix Tab -->
+    <template if:true={isMatrixTab}>
+      <c-expansion-score-matrix
+        sites={filteredSites}>
+      </c-expansion-score-matrix>
+    </template>
+
+    <!-- Scorecard Detail Modal -->
+    <template if:true={showModal}>
+      <c-expansion-scorecard-detail
+        site={selectedSite}
+        onmodalclose={handleModalClose}
+        onactioncomplete={handleActionComplete}>
+      </c-expansion-scorecard-detail>
+    </template>
+
+  </div>
+</template>

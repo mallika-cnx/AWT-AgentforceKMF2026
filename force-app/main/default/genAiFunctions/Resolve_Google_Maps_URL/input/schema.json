@@ -1,0 +1,21 @@
+{
+  "required" : [ "mapsUrl" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "includeGeocoding" : {
+      "title" : "Include Geocoding",
+      "description" : "Whether to fetch address details (requires API key configuration)",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "mapsUrl" : {
+      "title" : "Google Maps URL",
+      "description" : "The Google Maps URL to resolve (short or full URL)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

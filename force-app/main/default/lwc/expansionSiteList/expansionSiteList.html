@@ -1,0 +1,20 @@
+<template>
+  <template if:true={hasSites}>
+    <div class="site-grid">
+      <template for:each={sites} for:item="site">
+        <!-- child component is expected to exist: c-expansion-site-card -->
+        <c-expansion-site-card
+          key={site.id}
+          site={site}
+          oncardclick={handleCardClick}>
+        </c-expansion-site-card>
+      </template>
+    </div>
+  </template>
+  <template if:false={hasSites}>
+    <div class="no-sites">
+      <p>No sites match your filters.</p>
+      <p>Try adjusting the region or competition filter.</p>
+    </div>
+  </template>
+</template>

@@ -1,0 +1,80 @@
+.dashboard-container {
+  padding: 1.5rem;
+  background-color: #f4f6fa;
+  min-height: 100vh;
+}
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.dashboard-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1F4E79;
+  margin: 0;
+}
+.dashboard-sub {
+  font-size: 0.8rem;
+  color: #8496A9;
+  margin: 0.25rem 0 0;
+}
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.search-input, .region-input {
+  border: 1px solid #D6E4F0;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  outline: none;
+  width: 200px;
+}
+.search-input:focus, .region-input:focus {
+  border-color: #2E75B6;
+}
+.tab-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.tab-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #D6E4F0;
+  background: white;
+  color: #8496A9;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tab-btn:hover { border-color: #2E75B6; }
+.tab-active {
+  background: #1F4E79;
+  color: white;
+  border-color: #1F4E79;
+}
+.error-box {
+  background: #F8D7DA;
+  color: #721C24;
+  border: 1px solid #F5C6CB;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  color: #8496A9;
+  font-size: 0.85rem;
+}

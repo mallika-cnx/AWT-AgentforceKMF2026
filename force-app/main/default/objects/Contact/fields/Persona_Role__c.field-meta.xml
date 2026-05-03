@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Persona_Role__c</fullName>
+    <description>Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <label>Persona Role</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Planning Manager</fullName>
+                <default>false</default>
+                <label>Planning Manager</label>
+            </value>
+            <value>
+                <fullName>Field Surveyor</fullName>
+                <default>false</default>
+                <label>Field Surveyor</label>
+            </value>
+            <value>
+                <fullName>Leadership</fullName>
+                <default>false</default>
+                <label>Leadership</label>
+            </value>
+            <value>
+                <fullName>Data Analyst</fullName>
+                <default>false</default>
+                <label>Data Analyst</label>
+            </value>
+            <value>
+                <fullName>IT Admin</fullName>
+                <default>false</default>
+                <label>IT Admin</label>
+            </value>
+            <value>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+                <label>Compliance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

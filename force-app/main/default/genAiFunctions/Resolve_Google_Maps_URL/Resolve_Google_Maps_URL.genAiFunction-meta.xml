@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Resolves a Google Maps URL to coordinates and optionally retrieves address details</description>
+    <developerName>Resolve_Google_Maps_URL</developerName>
+    <invocationTarget>GoogleMapsInvocableAction</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Resolve_Google_Maps_URL</localDeveloperName>
+    <masterLabel>Resolve Google Maps URL</masterLabel>
+    <progressIndicatorMessage>Getting Details for you...</progressIndicatorMessage>
+</GenAiFunction>

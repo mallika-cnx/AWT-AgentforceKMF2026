@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Source__c</fullName>
+    <description>Origin of the demographic data record 
+
+Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <label>Data Source</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Census of India</fullName>
+                <default>false</default>
+                <label>Census of India</label>
+            </value>
+            <value>
+                <fullName>NSSO</fullName>
+                <default>false</default>
+                <label>NSSO</label>
+            </value>
+            <value>
+                <fullName>Experian</fullName>
+                <default>false</default>
+                <label>Experian</label>
+            </value>
+            <value>
+                <fullName>CRISIL</fullName>
+                <default>false</default>
+                <label>CRISIL</label>
+            </value>
+            <value>
+                <fullName>Manual</fullName>
+                <default>false</default>
+                <label>Manual</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

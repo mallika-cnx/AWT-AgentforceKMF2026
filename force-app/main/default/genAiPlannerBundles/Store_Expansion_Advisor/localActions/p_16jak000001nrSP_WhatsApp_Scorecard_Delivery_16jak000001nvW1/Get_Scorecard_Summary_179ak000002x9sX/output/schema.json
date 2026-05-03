@@ -1,0 +1,63 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_Found" : {
+      "title" : "var_Found",
+      "description" : "true if summary is found.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_PaybackDisplay" : {
+      "title" : "var_PaybackDisplay",
+      "description" : "Payback Period to display",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_RevenueDisplay" : {
+      "title" : "var_RevenueDisplay",
+      "description" : "Total revenue to display",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_ScorecardText" : {
+      "title" : "var_ScorecardText",
+      "description" : "Scorecard text ",
+      "lightning:type" : "lightning__richTextType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_SiteRecord" : {
+      "title" : "var_SiteRecord",
+      "description" : "Potential Site record",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Potential_Site__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_ViabilityDisplay" : {
+      "title" : "var_ViabilityDisplay",
+      "description" : "Viability Score to display",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

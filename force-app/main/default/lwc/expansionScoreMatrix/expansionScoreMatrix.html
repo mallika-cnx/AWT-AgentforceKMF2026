@@ -1,0 +1,73 @@
+<template>
+  <div class='matrix-container'>
+    <div class='matrix-header'>
+      <div>
+        <h3 class='matrix-title'>Score Matrix</h3>
+        <p class='matrix-sub'>
+          Each cell shows how many sites fall in that
+          demand score band per competition level.
+          Green row = sweet spot.
+        </p>
+      </div>
+      <div class='sweet-badge'>
+        <span>{sweetSpotCount}</span>
+        Sweet spot sites
+      </div>
+    </div>
+ 
+    <!-- Column headers (demand score bands) -->
+    <div class='matrix-grid'>
+      <div class='matrix-axis-label'></div>
+      <div class='band-header'>0-10</div>
+      <div class='band-header'>10-20</div>
+      <div class='band-header'>20-30</div>
+      <div class='band-header'>30-40</div>
+      <div class='band-header'>40-50</div>
+      <div class='band-header'>50-60</div>
+      <div class='band-header'>60-70</div>
+      <div class='band-header band-sweet'>70-80</div>
+      <div class='band-header band-sweet'>80-90</div>
+      <div class='band-header band-sweet'>90-100</div>
+    </div>
+ 
+    <!-- Matrix rows -->
+    <template for:each={matrixRows} for:item='row'>
+      <div key={row.label} class={row.rowClass}>
+        <div class='matrix-axis-label'>{row.label}</div>
+        <template for:each={row.cells} for:item='cell'>
+          <div key={cell.band}
+               class={cell.cellClass}
+               title={cell.tooltip}>
+            <template if:true={cell.count}>
+              <span class='cell-count'>{cell.count}</span>
+            </template>
+          </div>
+        </template>
+      </div>
+    </template>
+ 
+    <!-- X axis label -->
+    <div class='x-axis-label'>
+      Demand Score (0 to 100) →
+    </div>
+ 
+    <!-- Sweet Spot Sites List -->
+    <template if:true={sweetSpotCount}>
+      <div class='sweet-sites'>
+        <p class='sweet-title'>
+          Sweet Spot Sites (Score 70+ with Low Competition)
+        </p>
+        <template for:each={sweetSpotSites}
+                  for:item='site'>
+          <div key={site.id} class='sweet-site-row'>
+            <span class='sweet-site-name'>{site.name}</span>
+            <span class='sweet-site-score'>
+              {site.demandScore}
+            </span>
+          </div>
+        </template>
+      </div>
+    </template>
+ 
+  </div>
+</template>

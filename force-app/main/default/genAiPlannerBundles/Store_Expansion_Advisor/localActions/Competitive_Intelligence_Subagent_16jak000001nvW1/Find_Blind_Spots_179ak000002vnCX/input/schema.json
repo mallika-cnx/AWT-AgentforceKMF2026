@@ -1,0 +1,21 @@
+{
+  "required" : [ "var_DemandThreshold", "var_Region" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_DemandThreshold" : {
+      "title" : "var_DemandThreshold",
+      "description" : "70 (or from user if they specify).",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_Region" : {
+      "title" : "var_Region",
+      "description" : "agent context (user's region query)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

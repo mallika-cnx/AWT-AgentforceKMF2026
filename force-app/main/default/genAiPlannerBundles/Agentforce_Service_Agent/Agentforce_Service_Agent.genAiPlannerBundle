@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Scores retail site locations for demand potential. Accepts address or GPS. Returns Demand Score, Competition Level, and analysis. All other queries are declined.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jak000001m3O1</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Google_Maps_Address_Resolution_Agent_16jak000001m3O1</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Google_Maps_Address_Resolution_Agent_16jak000001m3O1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>When users provide a Google Maps URL and ask for the address.</description>
+        <developerName>Google_Maps_Address_Resolution_Agent_16jak000001m3O1</developerName>
+        <genAiPluginInstructions>
+            <description>When given a Google Maps URL, immediately call &quot;Resolve Google Maps URL&quot; action.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If successful, respond with ONLY the formattedAddress along with latitude and longitude.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If failed, respond with ONLY the errorMessage.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Do not ask follow-up questions.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Resolve_Google_Maps_URL_179ak000002rH4n</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Resolve_Google_Maps_URL_179ak000002rH4n</fullName>
+            <description>Resolves a Google Maps URL to coordinates and optionally retrieves address details</description>
+            <developerName>Resolve_Google_Maps_URL_179ak000002rH4n</developerName>
+            <invocationTarget>GoogleMapsInvocableAction</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Resolve_Google_Maps_URL</localDeveloperName>
+            <masterLabel>Resolve Google Maps URL</masterLabel>
+            <progressIndicatorMessage>Getting Details for you...</progressIndicatorMessage>
+            <source>Resolve_Google_Maps_URL</source>
+        </localActions>
+        <localDeveloperName>Google_Maps_Address_Resolution_Agent</localDeveloperName>
+        <masterLabel>Google Maps Address Resolution Agent</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Accept a Google Maps URL, invoke the &quot;Resolve Google Maps URL&quot; action, and return only the formatted address along with latitude and longitude or error message.</scope>
+    </localTopics>
+    <masterLabel>Agentforce Service Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jak000001m3O1</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jak000001m3O1</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+</GenAiPlannerBundle>

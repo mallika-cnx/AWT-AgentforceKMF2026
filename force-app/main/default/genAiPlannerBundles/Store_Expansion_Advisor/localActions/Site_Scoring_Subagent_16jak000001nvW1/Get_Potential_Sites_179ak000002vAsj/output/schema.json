@@ -1,0 +1,40 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_ErrorMessage" : {
+      "title" : "var_ErrorMessage",
+      "description" : "Populated if no records found or query fails",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_ResultCount" : {
+      "title" : "var_ResultCount",
+      "description" : "Total Number of sites found - used by Subagent to confirm results",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    },
+    "var_SiteCollection" : {
+      "title" : "var_SiteCollection",
+      "description" : "Potential Site Record as object",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "lightning__recordInfoType",
+        "lightning:sObjectInfo" : {
+          "apiName" : "Potential_Site__c"
+        }
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true,
+      "copilotAction:useHydratedPrompt" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

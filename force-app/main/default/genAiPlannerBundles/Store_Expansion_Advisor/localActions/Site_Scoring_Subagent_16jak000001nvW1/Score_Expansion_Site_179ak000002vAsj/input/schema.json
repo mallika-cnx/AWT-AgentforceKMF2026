@@ -1,0 +1,14 @@
+{
+  "required" : [ "siteId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "siteId" : {
+      "title" : "siteId",
+      "description" : "the site record ID from agent context. ",
+      "lightning:type" : "lightning__recordIdType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

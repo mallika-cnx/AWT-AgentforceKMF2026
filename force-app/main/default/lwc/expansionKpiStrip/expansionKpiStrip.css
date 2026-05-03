@@ -1,0 +1,25 @@
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kpi-card {
+  background: white;
+  border: 1px solid #D6E4F0;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+.kpi-label {
+  font-size: 0.75rem;
+  color: #8496A9;
+  margin: 0 0 0.25rem;
+}
+.kpi-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1F4E79;
+  margin: 0;
+}
+.kpi-green { color: #1D9E75; }
+.kpi-blue  { color: #2E75B6; }

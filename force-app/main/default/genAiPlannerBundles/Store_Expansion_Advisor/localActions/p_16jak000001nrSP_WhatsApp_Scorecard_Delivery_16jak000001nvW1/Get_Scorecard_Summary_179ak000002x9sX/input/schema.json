@@ -1,0 +1,27 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_AddressString" : {
+      "title" : "var_AddressString",
+      "description" : "Formatted address of the site.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_PlainText" : {
+      "title" : "var_PlainText",
+      "description" : "true if we need summary in plain text format",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_SiteId" : {
+      "title" : "var_SiteId",
+      "description" : "Potential Site record id.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

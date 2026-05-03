@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic is selected to generate financial projections for potential retail sites. Use it when the user requests detailed financial forecasts or profitability analysis.</description>
+    <developerName>p_16jak000001nrSP_Financial_Projection_Analysis</developerName>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query involves financial projections, ensure the necessary site data is available.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Use appropriate financial projection tools to generate the analysis.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jak000001nrSP_Financial_Projection_Analysis</localDeveloperName>
+    <masterLabel>Financial Projection Analysis</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only generate financial projections for potential retail sites, including profitability forecasts. You aren&apos;t able to analyze competitive intelligence or score retail sites.</scope>
+</GenAiPlugin>

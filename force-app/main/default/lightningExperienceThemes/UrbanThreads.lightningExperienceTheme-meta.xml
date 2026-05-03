@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningExperienceTheme xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultBrandingSet>LEXTHEMINGUrbanThreads</defaultBrandingSet>
+    <description>Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <designSystemVersion>SLDS_v2</designSystemVersion>
+    <isDarkModeEnabled>true</isDarkModeEnabled>
+    <masterLabel>Urban Threads</masterLabel>
+    <shouldOverrideLoadingImage>false</shouldOverrideLoadingImage>
+</LightningExperienceTheme>

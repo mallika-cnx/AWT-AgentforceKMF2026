@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>You are an AI Agent whose job is to help Urban Threads with retail expansion by routing queries to specialized subagents for site scoring, financial projection, competitive intelligence, and WhatsApp scorecard delivery.
+
+For any question about payback period, revenue, financial projection, ROI, NPV, or investment return — route to Financial Projection topic.</description>
+    <localTopicLinks>
+        <genAiPluginName>Competitive_Intelligence_Subagent_16jak000001nvW1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Financial_Projection_Subagent_16jak000001nvW1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Site_Recommendation_16jak000001nvW1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Site_Scoring_Subagent_16jak000001nvW1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>p_16jak000001nrSP_WhatsApp_Scorecard_Delivery_16jak000001nvW1</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>p_16jak000001nrSP_WhatsApp_Scorecard_Delivery_16jak000001nvW1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles location submissions arriving from field
+surveyors through the WhatsApp messaging channel.
+Processes google map URL or addresses sent via
+WhatsApp and returns a complete plain text site
+scorecard as a reply to the same WhatsApp number.</description>
+        <developerName>p_16jak000001nrSP_WhatsApp_Scorecard_Delivery_16jak000001nvW1</developerName>
+        <genAiPluginInstructions>
+            <description>This topic is only triggered when input arrives
+   through the WhatsApp messaging channel from
+   a registered field surveyor contact.</description>
+            <developerName>instructions_0_1777551485080</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777551485080</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If a google map URL is provided and ask for scorecard( run below in order):
+1. Call Create Potential Site to create site.
+2. Then call Score Expansion Site action with the returned ID.
+3. Once Site scoring is done call WhatsApp Reply Formatter action by providing the Site Id that is return from  Create Potential Site(siteId).
+4. Always reply in the exact format below with no extra text, no deviations, and no missing fields; keep labels, order, spacing, capitalization, and line breaks identical, use &quot;Rs&quot; for currency, and if any value is unavailable write &quot;N/A&quot;:
+
+SITE SCORECARD:
+Location: &lt;location&gt;
+Demand Score: &lt;value&gt; / 100
+Competition: &lt;Low/Medium/High&gt;
+Blind Spot: &lt;Yes/No&gt;
+Quality Tier: &lt;Poor/Average/Good/Excellent&gt;
+Revenue (Yr1): Rs &lt;value&gt;
+Payback: &lt;value&gt; years
+Recommendation: &lt;text&gt;
+
+Financial Summary:
+Revenue (Yr1): Rs &lt;value&gt;
+Payback: &lt;value&gt; years
+Viability: &lt;text&gt;
+
+Reply APPROVE or REJECT to submit assessment.</description>
+            <developerName>instructions_0_1777551766720</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777551766720</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Return the following from the scoring result if the user ask for the demand score:
+   - Demand Score out of 100
+   - Competition Level (High, Medium, or Low)
+   - Site Quality Tier (Prime, Viable, Marginal, or Poor)
+   - Whether the site is a Blind Spot
+   - Agent Recommendation text</description>
+            <developerName>instructions_0_1777612855026</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777612855026</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>WhatsApp_Reply_Formatter_179ak000002x9sX</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Create_Potential_Site_179ak000002x9sX</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Score_Expansion_Site_179ak000002x9sX</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Scorecard_Summary_179ak000002x9sX</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Scorecard_Summary_179ak000002x9sX</fullName>
+            <description>It provide summary of the generated scorecard with the help of provided input values.</description>
+            <developerName>Get_Scorecard_Summary_179ak000002x9sX</developerName>
+            <invocationTarget>Get_Scorecard_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Scorecard_Summary</localDeveloperName>
+            <masterLabel>Get Scorecard Summary</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Create_Potential_Site_179ak000002x9sX</fullName>
+            <description>This agent action is responsible for providing Potential Site record Id by providing google maps URL as input.</description>
+            <developerName>Create_Potential_Site_179ak000002x9sX</developerName>
+            <invocationTarget>Create_Site_And_WhatsApp_Interaction</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Create_Potential_Site</localDeveloperName>
+            <masterLabel>Create Potential Site</masterLabel>
+            <source>Create_Potential_Site</source>
+        </localActions>
+        <localActions>
+            <fullName>Score_Expansion_Site_179ak000002x9sX</fullName>
+            <description>Scores a potential site using footfall, demographic, and competitor data</description>
+            <developerName>Score_Expansion_Site_179ak000002x9sX</developerName>
+            <invocationTarget>ExpansionScoringEngine</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Score_Expansion_Site</localDeveloperName>
+            <masterLabel>Score Expansion Site</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>WhatsApp_Reply_Formatter_179ak000002x9sX</fullName>
+            <description>Using phone number and phone number generate the score card to reply to whatsapp user</description>
+            <developerName>WhatsApp_Reply_Formatter_179ak000002x9sX</developerName>
+            <invocationTarget>WhatsApp_Reply_Formatter</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>WhatsApp_Reply_Formatter</localDeveloperName>
+            <masterLabel>WhatsApp Reply Formatter</masterLabel>
+            <source>WhatsApp_Reply_Formatter</source>
+        </localActions>
+        <localDeveloperName>p_16jak000001nrSP_WhatsApp_Scorecard_Delivery</localDeveloperName>
+        <masterLabel>WhatsApp Scorecard Delivery</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>This topic is exclusively for the WhatsApp
+messaging channel. It processes GPS coordinates,
+Google Maps URLs, or address text submitted by
+field surveyors standing at candidate storefronts.
+It does not handle chat-based requests from
+planning managers or leadership. All chat-based
+scorecard requests are handled by the Site
+Scoring topic.</scope>
+        <source>p_16jak000001nrSP_WhatsApp_Scorecard_Delivery</source>
+    </localTopics>
+    <localTopics>
+        <fullName>Site_Scoring_Subagent_16jak000001nvW1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles requests to score any specific candidate
+site or location by calculating its demand score
+and competition level using demographic data,
+footfall estimates, and competitor proximity
+records stored in Salesforce.</description>
+        <developerName>Site_Scoring_Subagent_16jak000001nvW1</developerName>
+        <genAiPluginInstructions>
+            <description>When the user asks for a score or scorecard
+   for a specific site, first call Get Scorecard
+   Summary using the site name, address, or PIN
+   code provided by the user.</description>
+            <developerName>instructions_0_1777398133876</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777398133876</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If a google map url is provided and ask for scoredcard( run below in order):
+1. Call Create Potential Site to create site.
+2. Then call Get Potential Sites with the returned var_PotentialSiteId as Site Id to find the matching site record
+3. Then call Score Expansion Site action with the returned ID.
+4. Once Site scoring is done call WhatsApp Reply Formatter action by providing the Site Id and send the output to user is rich text format.</description>
+            <developerName>instructions_0_1777552690937</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777552690937</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If Get Scorecard Summary returns a site record,
+   present the demand score out of 100, competition
+   level, site quality tier, and blind spot status.</description>
+            <developerName>instructions_0_1777609958993</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777609958993</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If no existing scorecard is found, call Score
+   Site (ExpansionScoringEngine) with the site ID
+   to generate a fresh score. Then call Get
+   Scorecard Summary to retrieve and present
+   the result.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Always explain what the demand score means.
+   A score of 80 or above is Prime. 60 to 79
+   is Viable. 40 to 59 is Marginal. Below 40
+   is Poor.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never tell the user no sites are available
+   without first attempting both a name search
+   and a PIN code search in Get Scorecard Summary.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never redirect the user to WhatsApp. Answer
+   all scoring requests directly in this chat.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Score_Expansion_Site_179ak000002vAsj</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Scorecard_Summary_179ak000002vAsj</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Potential_Sites_179ak000002vAsj</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>WhatsApp_Reply_Formatter_179ak000002vAsj</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Score_Expansion_Site_179ak000002vAsj</fullName>
+            <description>Scores a potential site and creates or updates the site scorecard</description>
+            <developerName>Score_Expansion_Site_179ak000002vAsj</developerName>
+            <invocationTarget>ExpansionScoringEngine</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Score_Expansion_Site</localDeveloperName>
+            <masterLabel>Score Expansion Site</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Scorecard_Summary_179ak000002vAsj</fullName>
+            <description>Get Scorecard Summary (Get_Scorecard_Summary)</description>
+            <developerName>Get_Scorecard_Summary_179ak000002vAsj</developerName>
+            <invocationTarget>Get_Scorecard_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Scorecard_Summary</localDeveloperName>
+            <masterLabel>Get Scorecard Summary</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Potential_Sites_179ak000002vAsj</fullName>
+            <description>Called by Agentforce Subagents to retrieve filtered site candidates</description>
+            <developerName>Get_Potential_Sites_179ak000002vAsj</developerName>
+            <invocationTarget>Get_Potential_Sites</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Potential_Sites</localDeveloperName>
+            <masterLabel>Get Potential Sites</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>WhatsApp_Reply_Formatter_179ak000002vAsj</fullName>
+            <description>Using phone number and phone number generate the score card to reply to whatsapp user</description>
+            <developerName>WhatsApp_Reply_Formatter_179ak000002vAsj</developerName>
+            <invocationTarget>WhatsApp_Reply_Formatter</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>WhatsApp_Reply_Formatter</localDeveloperName>
+            <masterLabel>WhatsApp Reply Formatter</masterLabel>
+            <source>WhatsApp_Reply_Formatter</source>
+        </localActions>
+        <localDeveloperName>Site_Scoring_Subagent</localDeveloperName>
+        <masterLabel>Site Scoring Subagent</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>This topic covers requests like score this site,
+what is the demand score for a location, generate
+a scorecard for an address or PIN code, and
+re-score a site that has already been evaluated.
+It does not cover financial projections or
+regional comparisons.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Site_Recommendation_16jak000001nvW1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles requests from planning managers asking where to open the next store, which locations have high demand and low competition, and which areas are best suited for retail expansion across Indian cities.</description>
+        <developerName>Site_Recommendation_16jak000001nvW1</developerName>
+        <genAiPluginInstructions>
+            <description>When the user asks where to open a store or which locations are best, call Get Potential Sites to retrieve candidate sites sorted by demand score descending.</description>
+            <developerName>instructions_0_1777309612605</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777309612605</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>After retrieving sites, call Get Scorecard
+   Summary for the top three results and present
+   each with site name, address, demand score,
+   competition level, blind spot status, and
+   expected Year 1 revenue.</description>
+            <developerName>instructions_1_1777309612605</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_1_1777309612605</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Always rank results from highest demand score
+   to lowest. Lead with the top recommendation
+   and explain why it ranks first.</description>
+            <developerName>instructions_2_1777309612605</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_2_1777309612605</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user specifies a city or region, pass
+   that value as the region filter to Get Potential
+   Sites. If no region is specified, return top
+   results across all regions.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user asks to approve or reject a
+   recommended site, call Approve Site or Reject
+   Site action and confirm the decision back
+   to the user.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never redirect the user to WhatsApp for
+   recommendations. Always answer directly
+   in this chat.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When the user says Approve, confirm, yes, or
+approve this site — call the Approve Site action
+immediately with the current site ID.</description>
+            <developerName>instructions_0_1777638872133</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777638872133</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When the user says Reject, no, or reject this
+site — call the Reject Site action immediately
+with the current site ID and ask for a rejection
+reason if not provided.</description>
+            <developerName>instructions_1_1777638872133</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_1_1777638872133</masterLabel>
+            <sortOrder>7</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_Potential_Sites_179ak000002v9tR</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Scorecard_Summary_179ak000002v9tR</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Approve_Site_179ak000002v9tR</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Reject_Site_179ak000002v9tR</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Scorecard_Summary_179ak000002v9tR</fullName>
+            <description>Get_Scorecard_Summary</description>
+            <developerName>Get_Scorecard_Summary_179ak000002v9tR</developerName>
+            <invocationTarget>Get_Scorecard_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Scorecard_Summary</localDeveloperName>
+            <masterLabel>Get Scorecard Summary</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Potential_Sites_179ak000002v9tR</fullName>
+            <description>Retrieves a filtered and sorted list of potential expansion sites</description>
+            <developerName>Get_Potential_Sites_179ak000002v9tR</developerName>
+            <invocationTarget>Get_Potential_Sites</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Potential_Sites</localDeveloperName>
+            <masterLabel>Get Potential Sites</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Approve_Site_179ak000002v9tR</fullName>
+            <description>Approval</description>
+            <developerName>Approve_Site_179ak000002v9tR</developerName>
+            <invocationTarget>Approve_Site</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Approve_Site</localDeveloperName>
+            <masterLabel>Approve Site</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Reject_Site_179ak000002v9tR</fullName>
+            <description>Rejection Details</description>
+            <developerName>Reject_Site_179ak000002v9tR</developerName>
+            <invocationTarget>Reject_Site</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Reject_Site</localDeveloperName>
+            <masterLabel>Reject Site</masterLabel>
+        </localActions>
+        <localDeveloperName>Site_Recommendation</localDeveloperName>
+        <masterLabel>Site Recommendation</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>This topic covers all location recommendation
+requests. It retrieves scored potential sites sorted
+by demand score, presents the top candidates with
+their scorecard data and financial projections, and
+allows the user to approve or reject a site directly
+from the conversation. This topic is triggered when
+the user asks questions like where should we open,
+best locations, top sites, recommend a city, or
+expansion recommendations.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Competitive_Intelligence_Subagent_16jak000001nvW1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles requests to identify retail expansion
+blind spots across India — areas where consumer
+demand is high but competitor density is low.
+Also answers questions about competitor proximity,
+threat scores, and market gaps for specific
+regions or cities.</description>
+        <developerName>Competitive_Intelligence_Subagent_16jak000001nvW1</developerName>
+        <genAiPluginInstructions>
+            <description>When the user asks for blind spots, low
+   competition areas, or market gaps, call
+   Find Blind Spots with the requested region
+   as the filter.</description>
+            <developerName>instructions_0_1777658569293</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777658569293</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>A blind spot is defined as a site with
+   Demand Score 70 or above AND Competition
+   Level equal to Low. Only present sites that
+   meet both criteria.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user does not specify a region, return
+   blind spots across all regions ordered by
+   demand score descending.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>For each blind spot returned, present the
+   site name, city, demand score, nearest
+   competitor distance, and threat score.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user asks about competitors near a
+   specific site, call Get Scorecard Summary
+   for that site and include competition level
+   and competitor density in your response.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Highlight the commercial significance of
+   each blind spot. Explain that high demand
+   with low competition means lower marketing
+   cost and faster customer acquisition.</description>
+            <developerName>instruction_5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 5</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When searching for a specific area like Banjara
+Hills, Koramangala, or Madhapur, also try the
+PIN code if the area name does not return results.
+Banjara Hills PIN is 500034.
+Koramangala PIN is 560034.
+Madhapur PIN is 500082.
+Marol Naka PIN is 500081.
+T Nagar PIN is 600017.</description>
+            <developerName>instruction_6</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 6</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_Scorecard_Summary_179ak000002vnCX</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Find_Blind_Spots1_179ak000002vnCX</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Find_Blind_Spots1_179ak000002vnCX</fullName>
+            <description>Find Blind Spots</description>
+            <developerName>Find_Blind_Spots1_179ak000002vnCX</developerName>
+            <invocationTarget>FindBlindSpotsApex</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Find_Blind_Spots1</localDeveloperName>
+            <masterLabel>Find Blind Spots</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Scorecard_Summary_179ak000002vnCX</fullName>
+            <description>Get Score Card Details</description>
+            <developerName>Get_Scorecard_Summary_179ak000002vnCX</developerName>
+            <invocationTarget>Get_Scorecard_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Scorecard_Summary</localDeveloperName>
+            <masterLabel>Get Scorecard Summary</masterLabel>
+        </localActions>
+        <localDeveloperName>Competitive_Intelligence_Subagent</localDeveloperName>
+        <masterLabel>Competitive Intelligence Subagent</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>This topic covers queries about blind spots,
+low competition areas, competitor distances,
+which regions have market gaps, and how many
+competitors are near a specific site. It does
+not handle site scoring or financial projections
+directly but may reference scores when presenting
+blind spot results.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Financial_Projection_Subagent_16jak000001nvW1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Analyses store performance data and returns
+projected Year 1 to Year 3 store revenue,
+capital recovery timeline, and site viability
+tier based on the demand score and demographic
+data stored in Salesforce.</description>
+        <developerName>Financial_Projection_Subagent_16jak000001nvW1</developerName>
+        <genAiPluginInstructions>
+            <description>When the user asks about store revenue,
+   capital recovery, site viability, or
+   projected earnings — call the Generate
+   Financial Projection action immediately.</description>
+            <developerName>instructions_0_1777655242982</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777655242982</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Pass the city name or site name to the action.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Return Year 1 store revenue, capital recovery
+   timeline in years, and viability tier.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Always present figures in Indian Rupees.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never say you cannot help. Never redirect
+   the user to external tools or analysts.
+   All projections are based on internal
+   Salesforce demand score data only.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Frame outputs as store performance metrics,
+   not as financial advice.</description>
+            <developerName>instruction_5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 5</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When the user mentions a location like
+Koramangala Bengaluru or Whitefield Bengaluru,
+pass only the area name as the input.
+Example: pass Koramangala not Koramangala Bengaluru.
+Pass Whitefield not Whitefield Bengaluru.
+Pass Madhapur not Madhapur Hyderabad.
+The system searches by area name automatically.</description>
+            <developerName>instructions_0_1777657040597</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777657040597</masterLabel>
+            <sortOrder>6</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Generate_Financial_Projection_179ak000002vB0n</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Scorecard_Summary_179ak000002vB0n</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Generate_Financial_Projection_179ak000002vB0n</fullName>
+            <description>Retrieves or creates a store
+               performance projection for a
+               candidate site including Year 1
+               to Year 3 revenue, capital
+               recovery timeline, and viability
+               classification.</description>
+            <developerName>Generate_Financial_Projection_179ak000002vB0n</developerName>
+            <invocationTarget>Generate_Financial_Projection</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Generate_Financial_Projection</localDeveloperName>
+            <masterLabel>Generate Financial Projection</masterLabel>
+        </localActions>
+        <localActions>
+            <fullName>Get_Scorecard_Summary_179ak000002vB0n</fullName>
+            <description>It will get the site score card summary</description>
+            <developerName>Get_Scorecard_Summary_179ak000002vB0n</developerName>
+            <invocationTarget>Get_Scorecard_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Scorecard_Summary</localDeveloperName>
+            <masterLabel>Get Scorecard Summary</masterLabel>
+        </localActions>
+        <localDeveloperName>Financial_Projection_Subagent</localDeveloperName>
+        <masterLabel>Site Performance Projection</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>This topic covers questions about how much a
+store will generate, how long to recover the
+opening investment, whether a site is viable,
+and store performance projections. Triggered
+by phrases: how much will it make, recovery
+timeline, site viability, store revenue,
+projected earnings, is it worth opening.</scope>
+    </localTopics>
+    <masterLabel>Store Expansion Advisor</masterLabel>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlannerBundle>

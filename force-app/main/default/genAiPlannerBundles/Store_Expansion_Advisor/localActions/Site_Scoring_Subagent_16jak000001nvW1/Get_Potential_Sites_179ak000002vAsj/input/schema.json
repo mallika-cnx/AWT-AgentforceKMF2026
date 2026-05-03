@@ -1,0 +1,27 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_MaxRecords" : {
+      "title" : "var_MaxRecords",
+      "description" : "Maximum number of sites to return. Default 10 if blank",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_Region" : {
+      "title" : "var_Region",
+      "description" : "State or city name to filter sites by e.g. Maharshtra or Mumbai",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "var_Status" : {
+      "title" : "var_Status",
+      "description" : "Site Status Picklist value - E.g. Under review or scored. Leave blank to return all statuses",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

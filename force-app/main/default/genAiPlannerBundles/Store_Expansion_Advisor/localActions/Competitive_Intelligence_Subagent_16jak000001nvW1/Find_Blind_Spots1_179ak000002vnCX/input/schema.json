@@ -1,0 +1,21 @@
+{
+  "required" : [ "demandThreshold", "region" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "demandThreshold" : {
+      "title" : "demandThreshold",
+      "description" : "70",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "region" : {
+      "title" : "region",
+      "description" : "(from user query — city or region name)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

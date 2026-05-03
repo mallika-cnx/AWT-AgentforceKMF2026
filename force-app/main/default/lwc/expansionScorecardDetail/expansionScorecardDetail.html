@@ -1,0 +1,106 @@
+<template>
+  <section role='dialog' class='modal-backdrop'
+           aria-modal='true'>
+    <div class='modal-box'>
+ 
+      <!-- Modal header -->
+      <div class='modal-header'>
+        <div>
+          <h2 class='modal-title'>{site.name}</h2>
+          <p class='modal-sub'>{site.address}</p>
+        </div>
+        <button class='close-btn'
+                onclick={handleClose}
+                aria-label='Close'>×</button>
+      </div>
+ 
+      <!-- Score grid -->
+      <div class='score-grid'>
+        <div class='score-card'>
+          <p class='sc-label'>Demand Score</p>
+          <p class={scoreColor}>{demandScoreDisplay}
+            <span class='sc-max'> / 100</span>
+          </p>
+          <p class='sc-tier'>{site.qualityTier}</p>
+        </div>
+        <div class='score-card'>
+          <p class='sc-label'>Competition</p>
+          <p class='sc-value'>{site.competition}</p>
+          <template if:true={site.blindSpot}>
+            <span class='blind-badge'>
+              Blind Spot Detected
+            </span>
+          </template>
+        </div>
+        <div class='score-card'>
+          <p class='sc-label'>Revenue Y1</p>
+          <p class='sc-value'>{formattedRevenue}</p>
+        </div>
+        <div class='score-card'>
+          <p class='sc-label'>Payback Period</p>
+          <p class='sc-value'>{formattedPayback}</p>
+          <p class='sc-tier'>{site.viability}</p>
+        </div>
+      </div>
+ 
+      <!-- Agent recommendation -->
+      <template if:true={site.recommendation}>
+        <div class='recommendation-box'>
+          <p class='rec-label'>Agent Recommendation</p>
+          <p class='rec-text'>{site.recommendation}</p>
+        </div>
+      </template>
+ 
+      <!-- Remarks input -->
+      <div class='remarks-section'>
+        <label class='remarks-label'>
+          Remarks (optional)
+        </label>
+        <textarea class='remarks-input'
+          placeholder='Add notes for the decision...'
+          value={remarks}
+          onchange={handleRemarksChange}>
+        </textarea>
+      </div>
+ 
+      <!-- Rejection reason -->
+      <div class='reject-reason-section'>
+        <lightning-combobox
+          label='Rejection Reason'
+          value={rejectionReason}
+          options={rejectionOptions}
+          onchange={handleRejectionReasonChange}>
+        </lightning-combobox>
+      </div>
+ 
+      <!-- Result message -->
+      <template if:true={showResult}>
+        <div class={resultClass}>{resultMessage}</div>
+      </template>
+ 
+      <!-- Action buttons -->
+      <div class='modal-actions'>
+        <lightning-button
+          label='Approve Site'
+          variant='success'
+          icon-name='utility:check'
+          onclick={handleApprove}
+          disabled={isProcessing}>
+        </lightning-button>
+        <lightning-button
+          label='Reject Site'
+          variant='destructive-text'
+          icon-name='utility:close'
+          onclick={handleReject}
+          disabled={isProcessing}>
+        </lightning-button>
+        <lightning-button
+          label='Cancel'
+          variant='neutral'
+          onclick={handleClose}>
+        </lightning-button>
+      </div>
+ 
+    </div>
+  </section>
+</template>

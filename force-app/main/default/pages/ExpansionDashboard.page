@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    <apex:canvasApp applicationName="Expansion_Dashboard"
+        width="100%" 
+        height="900px"
+        scrolling="auto"
+    />
+</apex:page>

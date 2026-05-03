@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Viability_Status__c</fullName>
+    <description>Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <externalId>false</externalId>
+    <formula>IF(
+   Payback_Period_Yrs__c &lt;= 2,
+  &quot;High Viability&quot;,
+  IF(
+     Payback_Period_Yrs__c &lt;= 3.5,
+    &quot;Viable&quot;,
+    &quot;Review Required&quot;
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Viability Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

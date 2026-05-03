@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Rejection_Email_Alert</fullName>
+        <description>Rejection Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Decision_Rejected_Email</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Set_Decision_Date</fullName>
+        <field>Decision_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Set Decision Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_Approved</fullName>
+        <field>Decision_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Set Status Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_On_Hold</fullName>
+        <field>Decision_Status__c</field>
+        <literalValue>On Hold</literalValue>
+        <name>Set Status On Hold</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_Rejected</fullName>
+        <field>Decision_Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Set Status Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

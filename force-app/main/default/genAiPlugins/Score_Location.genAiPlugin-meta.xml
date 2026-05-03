@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Handles all requests where the user shares a retail site location, address, area name, or GPS coordinates and wants a demand score and competition analysis.</description>
+    <developerName>Score_Location</developerName>
+    <genAiFunctions>
+        <functionName>Calculate_Demand_Score</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Extract the location from the user&apos;s message. - If the user sent a WhatsApp GPS pin, extract latitude and longitude. - If the user sent a text address or area name, use that as Location Input. - If both are present, use both.</description>
+        <developerName>instruction_0_1776863130107</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0_1776863130107</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Call the &quot;Score Retail Location&quot; action with: - Location Input = the address or place name - Latitude = decimal latitude (if available, else leave blank) - Longitude = decimal longitude (if available, else leave blank) - Channel = &quot;WhatsApp&quot;</description>
+        <developerName>instruction_1_1776863130107</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1_1776863130107</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Return ONLY the &quot;Formatted Scorecard&quot; field from the action result. Do not paraphrase or add to it.</description>
+        <developerName>instruction_2_1776863130107</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2_1776863130107</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the action returns Success = false, reply: &quot;Unable to score this location right now. Please try again or provide more location details.&quot;</description>
+        <developerName>instruction_3_1776863130107</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_3_1776863130107</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>Score_Location</localDeveloperName>
+    <masterLabel>Score Location</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Do not add any extra commentary WHEN a user asks anything other than location scoring: - Respond ONLY with: &quot;I&apos;m sorry, this service is only available for retail site location scoring. Please share a location or address and I will provide a Demand Score for you.&quot; - Do NOT attempt to answer the question - Do NOT call any action NEVER make up a score. ALWAYS use the action result. NEVER discuss competitor details, financial projections, or recommendations beyond what the action returns.</scope>
+</GenAiPlugin>

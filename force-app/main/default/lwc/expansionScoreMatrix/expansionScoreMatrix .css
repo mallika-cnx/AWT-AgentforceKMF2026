@@ -1,0 +1,116 @@
+/* file retained for backup; actual stylesheet moved to expansionScoreMatrix.css */
+.matrix-container {
+  background: white;
+  border: 1px solid #D6E4F0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.matrix-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+.matrix-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1F4E79;
+  margin: 0;
+}
+.matrix-sub {
+  font-size: 0.75rem;
+  color: #8496A9;
+  margin: 0.25rem 0 0;
+}
+.sweet-badge {
+  background: #D4EDDA;
+  color: #155724;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+.sweet-badge span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.matrix-grid, .matrix-row {
+  display: grid;
+  grid-template-columns: 140px repeat(10, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.band-header {
+  font-size: 0.65rem;
+  color: #8496A9;
+  text-align: center;
+  padding: 0.25rem 0;
+}
+.band-sweet { color: #155724; font-weight: 600; }
+.matrix-axis-label {
+  font-size: 0.75rem;
+  color: #8496A9;
+  display: flex;
+  align-items: center;
+  padding-right: 0.5rem;
+}
+.matrix-cell {
+  height: 2.5rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell-empty { background: #F8F9FA; }
+.cell-filled {
+  background: #2E75B6;
+  cursor: pointer;
+}
+.row-low .cell-filled {
+  background: #1D9E75;
+}
+.row-medium .cell-filled {
+  background: #EF9F27;
+}
+.row-high .cell-filled {
+  background: #E24B4A;
+}
+.cell-count {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.x-axis-label {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #8496A9;
+  margin-top: 0.5rem;
+}
+.sweet-sites {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #EEF4FA;
+}
+.sweet-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #155724;
+  margin: 0 0 0.75rem;
+}
+.sweet-site-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #EEF4FA;
+  font-size: 0.8rem;
+}
+.sweet-site-name { color: #1F4E79; font-weight: 500; }
+.sweet-site-score {
+  background: #D4EDDA;
+  color: #155724;
+  padding: 0.1rem 0.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}

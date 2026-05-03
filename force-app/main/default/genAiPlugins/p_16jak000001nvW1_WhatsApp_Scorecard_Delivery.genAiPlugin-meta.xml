@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Use this topic to distribute site evaluation results via WhatsApp for quick and accessible decision-making.</description>
+    <developerName>p_16jak000001nvW1_WhatsApp_Scorecard_Delivery</developerName>
+    <genAiFunctions>
+        <functionName>Slack__SendMessageToSlackChannel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query involves sharing site evaluation results via WhatsApp, use the &apos;Slack__SendMessageToSlackChannel&apos; action.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jak000001nvW1_WhatsApp_Scorecard_Delivery</localDeveloperName>
+    <masterLabel>WhatsApp Scorecard Delivery</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only distribute site evaluation results to users via WhatsApp. You aren&apos;t able to create or analyze the evaluation results.</scope>
+</GenAiPlugin>

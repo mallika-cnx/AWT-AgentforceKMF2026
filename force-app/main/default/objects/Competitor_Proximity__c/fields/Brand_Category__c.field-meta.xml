@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand_Category__c</fullName>
+    <description>Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <inlineHelpText>Competitive classification used in weighting within Agentforce scoring</inlineHelpText>
+    <label>Brand Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Direct Competitor</fullName>
+                <default>false</default>
+                <label>Direct Competitor</label>
+            </value>
+            <value>
+                <fullName>Adjacent Category</fullName>
+                <default>false</default>
+                <label>Adjacent Category</label>
+            </value>
+            <value>
+                <fullName>Anchor Store</fullName>
+                <default>false</default>
+                <label>Anchor Store</label>
+            </value>
+            <value>
+                <fullName>Indirect Competitor</fullName>
+                <default>false</default>
+                <label>Indirect Competitor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

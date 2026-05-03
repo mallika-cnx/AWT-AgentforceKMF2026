@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Score_Range_Check</fullName>
+    <active>true</active>
+    <description>Created for Agentforce Hackathon 2026 Retail &amp; Consumer Goods Use Case (Kilimanjaro Force Team)</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(Demand_Score__c)), OR(Demand_Score__c &lt; 0, Demand_Score__c &gt; 100))</errorConditionFormula>
+    <errorMessage>Demand Score must be between 0 and 100.</errorMessage>
+</ValidationRule>

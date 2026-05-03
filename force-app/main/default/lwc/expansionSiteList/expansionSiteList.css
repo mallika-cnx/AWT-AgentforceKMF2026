@@ -1,0 +1,11 @@
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.no-sites {
+  text-align: center;
+  padding: 3rem;
+  color: #8496A9;
+  font-size: 0.9rem;
+}

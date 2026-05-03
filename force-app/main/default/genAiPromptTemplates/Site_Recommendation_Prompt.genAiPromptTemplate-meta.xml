@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>wTUTE1YxvhrHLQNxYt2Oq+Hq2YrEgEI1KC4mk/LAuoY=_1</activeVersionIdentifier>
+    <developerName>Site_Recommendation_Prompt</developerName>
+    <masterLabel>Site Recommendation Prompt</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a retail expansion advisor for an Indian consumer brand.
+Analyse the site data below and recommend whether to prioritise
+this location for a new store opening.
+
+Site: {!$Input:Site_Recommendation_Prompt.Address__City__s}
+Demand Score: {{!$Input:Site_Recommendation_Prompt.Demand_Score__c}}/100
+Competition: {!$Input:Site_Recommendation_Prompt.Site_Score_Card__r.Competition_Level__c}
+Blind Spot: {!$Input:Site_Recommendation_Prompt.Site_Score_Card__r.Blind_Spot_Flag__c}
+Payback: {!$RelatedList:Site_Recommendation_Prompt.Financial_Projections__r.Records}
+
+Provide: (1) One-sentence recommendation.
+(2) Three supporting reasons. (3) One key risk. Max 200 words.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Site_Recommendation_Prompt</apiName>
+            <definition>SOBJECT://Potential_Site__c</definition>
+            <masterLabel>Site Recommendation Prompt</masterLabel>
+            <referenceName>Input:Site_Recommendation_Prompt</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <description>Gets a related list for the specified parent record id and related list name</description>
+            <label>Financial Projections</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Site_Recommendation_Prompt.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Financial_Projections__r</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Site_Recommendation_Prompt.Financial_Projections__r.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>wTUTE1YxvhrHLQNxYt2Oq+Hq2YrEgEI1KC4mk/LAuoY=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

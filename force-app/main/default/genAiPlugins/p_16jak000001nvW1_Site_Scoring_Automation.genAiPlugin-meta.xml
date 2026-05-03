@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Use this topic when evaluating potential retail locations based on predefined metrics to assess suitability for expansion.</description>
+    <developerName>p_16jak000001nvW1_Site_Scoring_Automation</developerName>
+    <genAiFunctions>
+        <functionName>Calculate_Demand_Score</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Resolve_Google_Maps_URL</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query involves evaluating a retail location, use the &apos;Calculate_Demand_Score&apos; action.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the location details are provided via a Google Maps URL, use the &apos;Resolve_Google_Maps_URL&apos; action to retrieve coordinates or address details.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>p_16jak000001nvW1_Site_Scoring_Automation</localDeveloperName>
+    <masterLabel>Site Scoring Automation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only evaluate potential retail locations using predefined metrics and provide insights into their suitability. You aren&apos;t able to process financial projections or competitive intelligence.</scope>
+</GenAiPlugin>

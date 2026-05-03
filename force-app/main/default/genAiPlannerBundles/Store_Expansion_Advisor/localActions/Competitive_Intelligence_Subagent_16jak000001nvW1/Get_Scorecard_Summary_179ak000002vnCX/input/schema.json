@@ -1,0 +1,28 @@
+{
+  "required" : [ "var_AddressString", "var_SiteId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_AddressString" : {
+      "title" : "var_AddressString",
+      "description" : "Address Details",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_PlainText" : {
+      "title" : "var_PlainText",
+      "description" : "Text Summary",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_SiteId" : {
+      "title" : "var_SiteId",
+      "description" : "Location Id",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
