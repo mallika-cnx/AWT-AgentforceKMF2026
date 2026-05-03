@@ -1,0 +1,14 @@
+{
+  "socketPath": "\\\\.\\pipe\\mcp-5e926733-ae68-49df-a3c8-33c93d2a4b09.sock",
+  "scheme": "pipe",
+  "headers": {
+    "Authorization": "Nonce d65e33c8-0329-49af-8ab3-5a59843f96d5"
+  },
+  "pid": 26040,
+  "ideName": "Visual Studio Code",
+  "timestamp": 1777785712667,
+  "workspaceFolders": [
+    "c:\\Users\\avyas\\Desktop\\Hackathon - Copy"
+  ],
+  "isTrusted": true
+}
